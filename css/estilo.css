@@ -1,0 +1,55 @@
+.topo{
+    width: 400px;
+    background-color: rgb(231, 228, 228);
+    margin: auto;
+    text-align: center;
+    font-size: 20px;
+    border: 1px solid rgb(41, 41, 41);
+}
+
+.form{
+    width: 200px;
+    text-align: center;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.topoPai{
+    display: flex;
+    justify-content: center;
+}
+
+.topoFilho{
+    align-self: center;
+    margin: auto;
+}
+
+/*TABELA*/
+
+td{
+    border: solid 3px rgb(199, 194, 194);
+    padding: 4px;;
+}
+
+tr{
+    background-color: rgb(230, 228, 228);
+}
+
+th{
+    background-color: #fff;
+    border: solid 3px rgb(199, 194, 194);
+    padding: 4px;;
+}
+
+/*FORMULÁRIO*/
+input{
+    margin: 2px;
+}
+
+/*TESTES*/
+
+.testes{
+    margin-top: 100px;
+    background-color: rgb(231, 228, 228);
+    border: 1px solid rgb(41, 41, 41);
+}

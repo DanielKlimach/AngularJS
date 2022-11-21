@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="listaTelefonica">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilo.css">
+    <title>Document</title>
+    <script src="angular-1.8.2/angular.js"></script>
+    <script>
+        angular.module("listaTelefonica", []);
+        angular.module("listaTelefonica").controller("listaTelefonicaCtrl", function($scope){
+            $scope.titulo = "Lista Telefonica"; //como se eu criasse uma variável titulo que ficará vinculada ao scope caso queira usala no front-end abaixo
+            $scope.contatos = [ //criei uma variável array
+                {nome: "Daniel", telefone: "9999-8080"},
+                {nome: "Pedro", telefone: "9099-8989"},
+                {nome: "Ana", telefone: "9009-8000"}
+            ];
+
+            $scope.adicionarContato = function (nome, telefone){
+                $scope.contatos.push({nome: nome, telefone: telefone});
+        };
+
+        });
+
+    </script>
+</head>
+<body>
+    <div ng-controller="listaTelefonicaCtrl" class="topo topoPai">
+        <div class="topo topoFilho">
+            <h4>{{titulo + ' teste ' + 2*4}}</h4>
+            <table class="topoFilho">
+                <tr>
+                    <th>Nome</th>
+                    <th>Telefone</th>
+                </tr>
+                <tr ng-repeat="contato in contatos"> <!--como se fosse um forEach-->
+                    <td>{{contato.nome}}</td> <!--acessei uma key específica do meu array-->
+                    <td>{{contato.telefone}}</td>
+                </tr>
+            </table>
+            <hr/>
+            <div class="form">
+                Nome:
+                <input type="text" ng-model="nome"/> <!--ng-model é o contrário do ng-bind, nele você pega um valor do front end e manda o valor pro back end-->
+                Telefone:
+                <input type="text" ng-model="telefone"/><!--os ng tem propriedade de serem constantemente atualizando, por qualquer alteração que seja feita, como um dígito-->
+                <button ng-click="adicionarContato(nome, telefone)">Adicionar Contato</button> <!--obrigatoriamente deve existir uma função no scipt chamada adicionarContato()-->
+            <hr/>
+                
+                {{nome}} <!--estou imprimindo a variável nome, que foi criada quando chamei o ng-model="nome" porém faço isso a cada alteração, ele deixa de imprimir o antigo valor e atualiza o novo valor-->
+                {{telefone}}<!--ATENÇÃO! Estes valores chamados, estão vinculados apenas com o ng-model, não tem nada haver com a key do meu array -->
+            </div>
+        
+            <div class="testes">
+                <h4>Teste</h4>
+                <p ng-bind="titulo"></p> <!--ng-bind essa tag pega uma coisa do scope e exibe no html como se fosse um sysout, como se fosse {{titulo}}-->
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
